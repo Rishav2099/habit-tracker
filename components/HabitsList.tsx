@@ -129,7 +129,7 @@ const HabitsList = () => {
   const toggleStreak = (date: string, name: string) => {
     const updatedHabits = habits.map((habit) => {
       if (habit.name === name) {
-        let updatedDays = habit.daysDone.includes(date)
+        const updatedDays = habit.daysDone.includes(date)
           ? habit.daysDone.filter((d) => d !== date)
           : [...habit.daysDone, date];
 
