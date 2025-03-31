@@ -55,7 +55,7 @@ const Page = () => {
             value={habit}
             onChange={(e) => setHabit(e.target.value)}
             placeholder="Enter habit name"
-            className="border border-gray-400 px-3 py-2 rounded-md w-64 focus:outline-none focus:ring-1 focus:bg-black bg-[#1c1c1c] focus:ring-white"
+            className="border border-gray-400 px-3 py-2 rounded-md w-64 focus:outline-none focus:ring-1  focus:ring-white"
           />
         </div>
 
