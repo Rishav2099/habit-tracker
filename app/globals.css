@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
+/* 🌗 Define Light & Dark Mode Variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --calendar-bg: #ffffff;
+  --calendar-text: #1e293b;
+  --calendar-active: #4ade80;
+  --calendar-hover: #22c55e;
+  --current-day: #3b82f6;
+  --current-day-text: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --calendar-bg: #1e293b;
+    --calendar-text: #e2e8f0;
+    --calendar-active: #4ade80;
+    --calendar-hover: #22c55e;
+    --current-day: #1d4ed8;
+    --current-day-text: #ffffff;
   }
 }
 
+/* 🌟 Base Styles */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Forced Dark Mode Calendar Styles */
+.dark-calendar-container .custom-calendar {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-calendar-container .react-calendar__navigation button {
+  color: #e2e8f0 !important;
+  background: transparent !important;
+}
+
+.dark-calendar-container .react-calendar__navigation button:hover {
+  background: #334155 !important;
+}
+
+.dark-calendar-container .react-calendar__month-view__weekdays__weekday {
+  color: #94a3b8 !important;
+}
+
+.dark-calendar-container .react-calendar__tile {
+  color: #e2e8f0 !important;
+}
+
+.dark-calendar-container .react-calendar__tile:enabled:hover,
+.dark-calendar-container .react-calendar__tile:enabled:focus {
+  background: #334155 !important;
+}
+
+.dark-calendar-container .react-calendar__tile--now {
+  background: #1e40af !important;
+  color: white !important;
+}
+
+.dark-calendar-container .react-calendar__tile--active {
+  background: #166534 !important;
+  color: white !important;
+}
+
+.dark-calendar-container .react-calendar__tile--neighboringMonth {
+  color: #64748b !important;
+  opacity: 0.6 !important;
+}
+
+/* Current Day */
+.dark-calendar-container .current-day {
+  background: #1e40af !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: 2px solid #3b82f6 !important;
+}
+
+/* Highlight Day */
+.dark-calendar-container .highlight-day {
+  background: #166534 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+/* Current + Highlight Day */
+.dark-calendar-container .current-day.highlight-day {
+  background: #1e40af !important;
+  position: relative !important;
+}
+
+.dark-calendar-container .current-day.highlight-day::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 2px !important;
+  right: 2px !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: #22c55e !important;
+  border-radius: 50% !important;
+  border: 2px solid #1e40af !important;
 }
